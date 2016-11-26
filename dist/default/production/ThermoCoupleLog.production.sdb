@@ -3,13 +3,15 @@
 [d edition pro ]
 [d chip 16F1512 ]
 [d frameptr 6 ]
+"492 C:\Program Files (x86)\Microchip\xc8\v1.38\sources\common\doprnt.c
+[v _sprintf sprintf `(i  1 e 2 0 ]
 "62 C:\Program Files (x86)\Microchip\xc8\v1.38\sources\common\float.c
 [v ___ftpack __ftpack `(f  1 e 3 0 ]
 "86 C:\Program Files (x86)\Microchip\xc8\v1.38\sources\common\ftadd.c
 [v ___ftadd __ftadd `(f  1 e 3 0 ]
-"51 C:\Workspace\MPLAB_X300\ThermoCoupleLog\main.c
+"54 C:\Workspace\MPLAB_X300\ThermoCoupleLog\main.c
 [v _SendFrame SendFrame `(i  1 e 2 0 ]
-"63
+"66
 [v _main main `(v  1 e 1 0 ]
 "55 C:\Workspace\MPLAB_X300\ThermoCoupleLog\mcc_generated_files/eusart.c
 [v _EUSART_Initialize EUSART_Initialize `(v  1 e 1 0 ]
@@ -156,23 +158,38 @@
 ]
 [u S33 . 1 `S22 1 . 1 0 `S28 1 . 1 0 ]
 [v _SSP1CON1bits SSP1CON1bits `VES33  1 e 1 @533 ]
-"49 C:\Workspace\MPLAB_X300\ThermoCoupleLog\main.c
+"52 C:\Workspace\MPLAB_X300\ThermoCoupleLog\main.c
 [v _Frame Frame `[20]uc  1 e 20 0 ]
-"63
+"66
 [v _main main `(v  1 e 1 0 ]
 {
-"99
+"103
 } 0
-"51
+"492 C:\Program Files (x86)\Microchip\xc8\v1.38\sources\common\doprnt.c
+[v _sprintf sprintf `(i  1 e 2 0 ]
+{
+[v sprintf@sp sp `*.4uc  1 a 1 wreg ]
+"499
+[v sprintf@c c `c  1 a 1 6 ]
+"494
+[v sprintf@ap ap `[1]*.1v  1 a 1 5 ]
+"492
+[v sprintf@sp sp `*.4uc  1 a 1 wreg ]
+[v sprintf@f f `*.25DCCuc  1 p 2 0 ]
+"533
+[v sprintf@sp sp `*.4uc  1 a 1 7 ]
+"1541
+} 0
+"54 C:\Workspace\MPLAB_X300\ThermoCoupleLog\main.c
 [v _SendFrame SendFrame `(i  1 e 2 0 ]
 {
 [v SendFrame@Data Data `*.4uc  1 a 1 wreg ]
-"52
+"55
 [v SendFrame@i i `i  1 a 2 3 ]
-"51
+"54
 [v SendFrame@Data Data `*.4uc  1 a 1 wreg ]
 [v SendFrame@Data Data `*.4uc  1 a 1 2 ]
-"58
+"61
 } 0
 "96 C:\Workspace\MPLAB_X300\ThermoCoupleLog\mcc_generated_files/eusart.c
 [v _EUSART_Write EUSART_Write `(v  1 e 1 0 ]
