@@ -43,6 +43,9 @@
     TERMS.
 */
 
+#include <xc.h>
+#include <stdio.h>
+#include <stdlib.h>
 #include "mcc_generated_files/mcc.h"
 
 
@@ -93,6 +96,7 @@ void main(void)
         LED_B_SetHigh();
         __delay_ms(1000);
         
+        sprintf(Frame,"CosNapisze");
         SendFrame(Frame);
         // Up 2
     }
