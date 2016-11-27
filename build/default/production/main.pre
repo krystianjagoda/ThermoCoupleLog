@@ -3088,6 +3088,8 @@ void OSCILLATOR_Initialize(void);
 void WDT_Initialize(void);
 
 # 52 "main.c"
+uint32_t CH1_RAW, CH2_RAW, CH3_RAW, CH4_RAW, CH5_RAW, CH6_RAW, CH7_RAW, CH8_RAW;
+
 char Frame[20] = "TESTY";
 
 int SendFrame(char Data[]){
@@ -3099,28 +3101,167 @@ EUSART_Write(0x0D);
 EUSART_Write(0x0A);
 }
 
-# 66
+void SetChannel(int ChannelNumber){
+switch (ChannelNumber){
+case 0:
+do { LATAbits.LATA0 = 1; } while(0);
+do { LATAbits.LATA1 = 1; } while(0);
+do { LATAbits.LATA2 = 1; } while(0);
+do { LATAbits.LATA3 = 1; } while(0);
+do { LATAbits.LATA4 = 1; } while(0);
+do { LATAbits.LATA5 = 1; } while(0);
+do { LATAbits.LATA7 = 1; } while(0);
+do { LATAbits.LATA6 = 1; } while(0);
+break;
+case 1:
+do { LATAbits.LATA0 = 0; } while(0);
+do { LATAbits.LATA1 = 1; } while(0);
+do { LATAbits.LATA2 = 1; } while(0);
+do { LATAbits.LATA3 = 1; } while(0);
+do { LATAbits.LATA4 = 1; } while(0);
+do { LATAbits.LATA5 = 1; } while(0);
+do { LATAbits.LATA7 = 1; } while(0);
+do { LATAbits.LATA6 = 1; } while(0);
+break;
+case 2:
+do { LATAbits.LATA0 = 1; } while(0);
+do { LATAbits.LATA1 = 0; } while(0);
+do { LATAbits.LATA2 = 1; } while(0);
+do { LATAbits.LATA3 = 1; } while(0);
+do { LATAbits.LATA4 = 1; } while(0);
+do { LATAbits.LATA5 = 1; } while(0);
+do { LATAbits.LATA7 = 1; } while(0);
+do { LATAbits.LATA6 = 1; } while(0);
+break;
+case 3:
+do { LATAbits.LATA0 = 1; } while(0);
+do { LATAbits.LATA1 = 1; } while(0);
+do { LATAbits.LATA2 = 0; } while(0);
+do { LATAbits.LATA3 = 1; } while(0);
+do { LATAbits.LATA4 = 1; } while(0);
+do { LATAbits.LATA5 = 1; } while(0);
+do { LATAbits.LATA7 = 1; } while(0);
+do { LATAbits.LATA6 = 1; } while(0);
+break;
+case 4:
+do { LATAbits.LATA0 = 1; } while(0);
+do { LATAbits.LATA1 = 1; } while(0);
+do { LATAbits.LATA2 = 1; } while(0);
+do { LATAbits.LATA3 = 0; } while(0);
+do { LATAbits.LATA4 = 1; } while(0);
+do { LATAbits.LATA5 = 1; } while(0);
+do { LATAbits.LATA7 = 1; } while(0);
+do { LATAbits.LATA6 = 1; } while(0);
+break;
+case 5:
+do { LATAbits.LATA0 = 1; } while(0);
+do { LATAbits.LATA1 = 1; } while(0);
+do { LATAbits.LATA2 = 1; } while(0);
+do { LATAbits.LATA3 = 1; } while(0);
+do { LATAbits.LATA4 = 0; } while(0);
+do { LATAbits.LATA5 = 1; } while(0);
+do { LATAbits.LATA7 = 1; } while(0);
+do { LATAbits.LATA6 = 1; } while(0);
+break;
+case 6:
+do { LATAbits.LATA0 = 1; } while(0);
+do { LATAbits.LATA1 = 1; } while(0);
+do { LATAbits.LATA2 = 1; } while(0);
+do { LATAbits.LATA3 = 1; } while(0);
+do { LATAbits.LATA4 = 1; } while(0);
+do { LATAbits.LATA5 = 0; } while(0);
+do { LATAbits.LATA7 = 1; } while(0);
+do { LATAbits.LATA6 = 1; } while(0);
+break;
+case 7:
+do { LATAbits.LATA0 = 1; } while(0);
+do { LATAbits.LATA1 = 1; } while(0);
+do { LATAbits.LATA2 = 1; } while(0);
+do { LATAbits.LATA3 = 1; } while(0);
+do { LATAbits.LATA4 = 1; } while(0);
+do { LATAbits.LATA5 = 1; } while(0);
+do { LATAbits.LATA7 = 0; } while(0);
+do { LATAbits.LATA6 = 1; } while(0);
+break;
+case 8:
+do { LATAbits.LATA0 = 1; } while(0);
+do { LATAbits.LATA1 = 1; } while(0);
+do { LATAbits.LATA2 = 1; } while(0);
+do { LATAbits.LATA3 = 1; } while(0);
+do { LATAbits.LATA4 = 1; } while(0);
+do { LATAbits.LATA5 = 1; } while(0);
+do { LATAbits.LATA7 = 1; } while(0);
+do { LATAbits.LATA6 = 0; } while(0);
+break;
+
+default:
+do { LATAbits.LATA0 = 1; } while(0);
+do { LATAbits.LATA1 = 1; } while(0);
+do { LATAbits.LATA2 = 1; } while(0);
+do { LATAbits.LATA3 = 1; } while(0);
+do { LATAbits.LATA4 = 1; } while(0);
+do { LATAbits.LATA5 = 1; } while(0);
+do { LATAbits.LATA7 = 1; } while(0);
+do { LATAbits.LATA6 = 1; } while(0);
+break;
+}
+
+
+}
+
+uint32_t GetData(uint8_t ChannelNumber){
+
+uint8_t Data_A;
+uint8_t Data_B;
+uint8_t Data_C;
+uint8_t Data_D;
+
+uint32_t MAX31855_Data = 0;
+
+SetChannel(ChannelNumber);
+Data_A = SPI_Exchange8bit(0);
+Data_B = SPI_Exchange8bit(0);
+Data_C = SPI_Exchange8bit(0);
+Data_D = SPI_Exchange8bit(0);
+SetChannel(0);
+
+MAX31855_Data = (Data_A *16777216) + (Data_B *65536) + (Data_C * 256) + Data_D;
+
+return MAX31855_Data;
+}
+
+# 199
 void main(void)
 {
 
 SYSTEM_Initialize();
+SetChannel(0);
 
-# 86
+# 220
 while (1)
 {
 
-do { LATBbits.LATB3 = 0; } while(0);
+_delay((unsigned long)((1000)*(16000000/4000.0)));
 do { LATBbits.LATB5 = 1; } while(0);
 _delay((unsigned long)((1000)*(16000000/4000.0)));
 do { LATBbits.LATB5 = 0; } while(0);
-do { LATBbits.LATB4 = 1; } while(0);
-_delay((unsigned long)((1000)*(16000000/4000.0)));
-do { LATBbits.LATB4 = 0; } while(0);
-do { LATBbits.LATB3 = 1; } while(0);
-_delay((unsigned long)((1000)*(16000000/4000.0)));
 
-sprintf(Frame,"CosNapisze");
+do { LATBbits.LATB4 = 1; } while(0);
+CH1_RAW = GetData(1);
+CH2_RAW = GetData(2);
+CH3_RAW = GetData(3);
+CH4_RAW = GetData(4);
+CH5_RAW = GetData(5);
+CH6_RAW = GetData(6);
+CH7_RAW = GetData(7);
+CH8_RAW = GetData(8);
+do { LATBbits.LATB4 = 0; } while(0);
+
+
+sprintf(Frame,"T = %d",CH1_RAW);
 SendFrame(Frame);
+
+
 
 }
 }

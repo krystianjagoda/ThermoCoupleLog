@@ -2119,9 +2119,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pin_manager.c: 52: {
 [e :U _PIN_MANAGER_Initialize ]
 [f ]
-[; ;pin_manager.c: 56: LATA = 0x00;
+[; ;pin_manager.c: 56: LATA = 0xFF;
 "56
-[e = _LATA -> -> 0 `i `uc ]
+[e = _LATA -> -> 255 `i `uc ]
 [; ;pin_manager.c: 57: LATB = 0x00;
 "57
 [e = _LATB -> -> 0 `i `uc ]

@@ -9,9 +9,17 @@
 [v ___ftpack __ftpack `(f  1 e 3 0 ]
 "86 C:\Program Files (x86)\Microchip\xc8\v1.38\sources\common\ftadd.c
 [v ___ftadd __ftadd `(f  1 e 3 0 ]
-"54 C:\Workspace\MPLAB_X300\ThermoCoupleLog\main.c
+"6 C:\Program Files (x86)\Microchip\xc8\v1.38\sources\common\lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+"6 C:\Program Files (x86)\Microchip\xc8\v1.38\sources\common\lwmod.c
+[v ___lwmod __lwmod `(ui  1 e 2 0 ]
+"56 C:\Workspace\MPLAB_X300\ThermoCoupleLog\main.c
 [v _SendFrame SendFrame `(i  1 e 2 0 ]
-"66
+"65
+[v _SetChannel SetChannel `(v  1 e 1 0 ]
+"173
+[v _GetData GetData `(ul  1 e 4 0 ]
+"199
 [v _main main `(v  1 e 1 0 ]
 "55 C:\Workspace\MPLAB_X300\ThermoCoupleLog\mcc_generated_files/eusart.c
 [v _EUSART_Initialize EUSART_Initialize `(v  1 e 1 0 ]
@@ -70,9 +78,21 @@
 [v _OSCCON OSCCON `VEuc  1 e 1 @153 ]
 "1849
 [v _LATA LATA `VEuc  1 e 1 @268 ]
+[s S241 . 1 `uc 1 LATA0 1 0 :1:0 
+`uc 1 LATA1 1 0 :1:1 
+`uc 1 LATA2 1 0 :1:2 
+`uc 1 LATA3 1 0 :1:3 
+`uc 1 LATA4 1 0 :1:4 
+`uc 1 LATA5 1 0 :1:5 
+`uc 1 LATA6 1 0 :1:6 
+`uc 1 LATA7 1 0 :1:7 
+]
+"1866
+[u S250 . 1 `S241 1 . 1 0 ]
+[v _LATAbits LATAbits `VES250  1 e 1 @268 ]
 "1910
 [v _LATB LATB `VEuc  1 e 1 @269 ]
-[s S242 . 1 `uc 1 LATB0 1 0 :1:0 
+[s S270 . 1 `uc 1 LATB0 1 0 :1:0 
 `uc 1 LATB1 1 0 :1:1 
 `uc 1 LATB2 1 0 :1:2 
 `uc 1 LATB3 1 0 :1:3 
@@ -82,8 +102,8 @@
 `uc 1 LATB7 1 0 :1:7 
 ]
 "1927
-[u S251 . 1 `S242 1 . 1 0 ]
-[v _LATBbits LATBbits `VES251  1 e 1 @269 ]
+[u S279 . 1 `S270 1 . 1 0 ]
+[v _LATBbits LATBbits `VES279  1 e 1 @269 ]
 "1971
 [v _LATC LATC `VEuc  1 e 1 @270 ]
 "2122
@@ -158,38 +178,77 @@
 ]
 [u S33 . 1 `S22 1 . 1 0 `S28 1 . 1 0 ]
 [v _SSP1CON1bits SSP1CON1bits `VES33  1 e 1 @533 ]
+"354 C:\Program Files (x86)\Microchip\xc8\v1.38\sources\common\doprnt.c
+[v _dpowers dpowers `DCC[5]ui  1 s 10 dpowers ]
 "52 C:\Workspace\MPLAB_X300\ThermoCoupleLog\main.c
+[v _CH1_RAW CH1_RAW `ul  1 e 4 0 ]
+[v _CH2_RAW CH2_RAW `ul  1 e 4 0 ]
+[v _CH3_RAW CH3_RAW `ul  1 e 4 0 ]
+[v _CH4_RAW CH4_RAW `ul  1 e 4 0 ]
+[v _CH5_RAW CH5_RAW `ul  1 e 4 0 ]
+[v _CH6_RAW CH6_RAW `ul  1 e 4 0 ]
+[v _CH7_RAW CH7_RAW `ul  1 e 4 0 ]
+[v _CH8_RAW CH8_RAW `ul  1 e 4 0 ]
+"54
 [v _Frame Frame `[20]uc  1 e 20 0 ]
-"66
+"199
 [v _main main `(v  1 e 1 0 ]
 {
-"103
+"246
 } 0
 "492 C:\Program Files (x86)\Microchip\xc8\v1.38\sources\common\doprnt.c
 [v _sprintf sprintf `(i  1 e 2 0 ]
 {
 [v sprintf@sp sp `*.4uc  1 a 1 wreg ]
+"528
+[v sprintf@val val `ui  1 a 2 13 ]
 "499
-[v sprintf@c c `c  1 a 1 6 ]
+[v sprintf@c c `c  1 a 1 16 ]
+"506
+[v sprintf@prec prec `c  1 a 1 12 ]
+"508
+[v sprintf@flag flag `uc  1 a 1 11 ]
 "494
-[v sprintf@ap ap `[1]*.1v  1 a 1 5 ]
+[v sprintf@ap ap `[1]*.4v  1 a 1 10 ]
 "492
 [v sprintf@sp sp `*.4uc  1 a 1 wreg ]
 [v sprintf@f f `*.25DCCuc  1 p 2 0 ]
 "533
-[v sprintf@sp sp `*.4uc  1 a 1 7 ]
+[v sprintf@sp sp `*.4uc  1 a 1 15 ]
 "1541
 } 0
-"54 C:\Workspace\MPLAB_X300\ThermoCoupleLog\main.c
+"6 C:\Program Files (x86)\Microchip\xc8\v1.38\sources\common\lwmod.c
+[v ___lwmod __lwmod `(ui  1 e 2 0 ]
+{
+"11
+[v ___lwmod@counter counter `uc  1 a 1 13 ]
+"6
+[v ___lwmod@divisor divisor `ui  1 p 2 8 ]
+[v ___lwmod@dividend dividend `ui  1 p 2 10 ]
+"26
+} 0
+"6 C:\Program Files (x86)\Microchip\xc8\v1.38\sources\common\lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+{
+"11
+[v ___lwdiv@quotient quotient `ui  1 a 2 5 ]
+"12
+[v ___lwdiv@counter counter `uc  1 a 1 7 ]
+"6
+[v ___lwdiv@divisor divisor `ui  1 p 2 0 ]
+[v ___lwdiv@dividend dividend `ui  1 p 2 2 ]
+"31
+} 0
+"56 C:\Workspace\MPLAB_X300\ThermoCoupleLog\main.c
 [v _SendFrame SendFrame `(i  1 e 2 0 ]
 {
 [v SendFrame@Data Data `*.4uc  1 a 1 wreg ]
-"55
+"57
 [v SendFrame@i i `i  1 a 2 3 ]
-"54
+"56
 [v SendFrame@Data Data `*.4uc  1 a 1 wreg ]
 [v SendFrame@Data Data `*.4uc  1 a 1 2 ]
-"61
+"63
 } 0
 "96 C:\Workspace\MPLAB_X300\ThermoCoupleLog\mcc_generated_files/eusart.c
 [v _EUSART_Write EUSART_Write `(v  1 e 1 0 ]
@@ -228,4 +287,39 @@
 [v _EUSART_Initialize EUSART_Initialize `(v  1 e 1 0 ]
 {
 "74
+} 0
+"173 C:\Workspace\MPLAB_X300\ThermoCoupleLog\main.c
+[v _GetData GetData `(ul  1 e 4 0 ]
+{
+[v GetData@ChannelNumber ChannelNumber `uc  1 a 1 wreg ]
+"180
+[v GetData@MAX31855_Data MAX31855_Data `ul  1 a 4 20 ]
+"178
+[v GetData@Data_D Data_D `uc  1 a 1 27 ]
+"177
+[v GetData@Data_C Data_C `uc  1 a 1 26 ]
+"176
+[v GetData@Data_B Data_B `uc  1 a 1 25 ]
+"175
+[v GetData@Data_A Data_A `uc  1 a 1 24 ]
+"173
+[v GetData@ChannelNumber ChannelNumber `uc  1 a 1 wreg ]
+"180
+[v GetData@ChannelNumber ChannelNumber `uc  1 a 1 19 ]
+"192
+} 0
+"65
+[v _SetChannel SetChannel `(v  1 e 1 0 ]
+{
+[v SetChannel@ChannelNumber ChannelNumber `i  1 p 2 0 ]
+"171
+} 0
+"77 C:\Workspace\MPLAB_X300\ThermoCoupleLog\mcc_generated_files/spi.c
+[v _SPI_Exchange8bit SPI_Exchange8bit `(uc  1 e 1 0 ]
+{
+[v SPI_Exchange8bit@data data `uc  1 a 1 wreg ]
+[v SPI_Exchange8bit@data data `uc  1 a 1 wreg ]
+"80
+[v SPI_Exchange8bit@data data `uc  1 a 1 0 ]
+"89
 } 0
