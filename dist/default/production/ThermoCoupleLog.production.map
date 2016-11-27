@@ -5,7 +5,7 @@ Linker command line:
 -W-3 --edf=C:\Program Files (x86)\Microchip\xc8\v1.38\dat\en_msgs.txt -cs \
   -h+dist/default/production\ThermoCoupleLog.production.sym \
   --cmf=dist/default/production\ThermoCoupleLog.production.cmf -z -Q16F1512 \
-  -oC:\Users\Shiguruy\AppData\Local\Temp\s2i40.2 \
+  -oC:\Users\Shiguruy\AppData\Local\Temp\s2pe4.2 \
   -Mdist/default/production/ThermoCoupleLog.production.map -E1 -ver=XC8 \
   -ASTACK=02033h-0206fh -pstack=STACK -ACODE=00h-07FFh -ASTRCODE=00h-07FFh \
   -ASTRING=00h-0FFhx8 -ACONST=00h-0FFhx8 -AENTRY=00h-0FFhx8 \
@@ -26,7 +26,7 @@ Linker command line:
   -pfunctab=CODE -ACONFIG=08007h-08008h -pconfig=CONFIG -DCONFIG=2 \
   -AIDLOC=08000h-08003h -pidloc=IDLOC -DIDLOC=2 -DCODE=2 -DSTRCODE=2 \
   -DSTRING=2 -DCONST=2 -DENTRY=2 -k \
-  C:\Users\Shiguruy\AppData\Local\Temp\s2i40.obj \
+  C:\Users\Shiguruy\AppData\Local\Temp\s2pe4.obj \
   dist/default/production\ThermoCoupleLog.production.obj 
 
 Object code version is 3.11
@@ -36,7 +36,7 @@ Machine type is 16F1512
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\Shiguruy\AppData\Local\Temp\s2i40.obj
+C:\Users\Shiguruy\AppData\Local\Temp\s2pe4.obj
                 end_init                              1        1        1        0       0
                 reset_vec                             0        0        1        0       0
                 config                             8007     8007        2    1000E       0
