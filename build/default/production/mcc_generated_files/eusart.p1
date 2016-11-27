@@ -2152,9 +2152,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eusart.c: 66: TXSTA = 0x24;
 "66
 [e = _TXSTA -> -> 36 `i `uc ]
-[; ;eusart.c: 69: SPBRGL = 0xCF;
+[; ;eusart.c: 69: SPBRGL = 0x22;
 "69
-[e = _SPBRGL -> -> 207 `i `uc ]
+[e = _SPBRGL -> -> 34 `i `uc ]
 [; ;eusart.c: 72: SPBRGH = 0x00;
 "72
 [e = _SPBRGH -> -> 0 `i `uc ]

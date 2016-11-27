@@ -3087,16 +3087,87 @@ void OSCILLATOR_Initialize(void);
 # 95
 void WDT_Initialize(void);
 
-# 52 "main.c"
-uint32_t CH1_RAW, CH2_RAW, CH3_RAW, CH4_RAW, CH5_RAW, CH6_RAW, CH7_RAW, CH8_RAW;
+# 51 "main.c"
+uint8_t ReceiveCount = 0;
+uint8_t ReceivedByte = 0;
 
-char Frame[20] = "TESTY";
+char CH_1_RAW[4] ="NONE";
+char CH_2_RAW[4] ="NONE";
+char CH_3_RAW[4] ="NONE";
+char CH_4_RAW[4] ="NONE";
+char CH_5_RAW[4] ="NONE";
+char CH_6_RAW[4] ="NONE";
+char CH_7_RAW[4] ="NONE";
+char CH_8_RAW[4] ="NONE";
 
-int SendFrame(char Data[]){
+
+int SendData(char Data[]){
 for(int i=0; i<20; i++)
 {
 EUSART_Write(Data[i]);
 }
+EUSART_Write(0x0D);
+EUSART_Write(0x0A);
+}
+
+
+void SendDataFrame(){
+
+uint16_t FrameSum = 0;
+uint8_t Checksum = 0;
+
+
+EUSART_Write('#'); FrameSum = FrameSum + '#';
+EUSART_Write('|'); FrameSum = FrameSum + '|';
+for(int i=0; i<4; i++)
+{
+EUSART_Write(CH_1_RAW[i]); FrameSum = FrameSum + CH_1_RAW[i];
+}
+EUSART_Write('|'); FrameSum = FrameSum + '|';
+
+for(int i=0; i<4; i++)
+{
+EUSART_Write(CH_2_RAW[i]); FrameSum = FrameSum + CH_2_RAW[i];
+}
+EUSART_Write('|'); FrameSum = FrameSum + '|';
+for(int i=0; i<4; i++)
+{
+EUSART_Write(CH_3_RAW[i]); FrameSum = FrameSum + CH_3_RAW[i];
+}
+EUSART_Write('|'); FrameSum = FrameSum + '|';
+
+for(int i=0; i<4; i++)
+{
+EUSART_Write(CH_4_RAW[i]); FrameSum = FrameSum + CH_4_RAW[i];
+}
+EUSART_Write('|'); FrameSum = FrameSum + '|';
+for(int i=0; i<4; i++)
+{
+EUSART_Write(CH_5_RAW[i]); FrameSum = FrameSum + CH_5_RAW[i];
+}
+EUSART_Write('|'); FrameSum = FrameSum + '|';
+
+for(int i=0; i<4; i++)
+{
+EUSART_Write(CH_6_RAW[i]); FrameSum = FrameSum + CH_6_RAW[i];
+}
+EUSART_Write('|'); FrameSum = FrameSum + '|';
+for(int i=0; i<4; i++)
+{
+EUSART_Write(CH_7_RAW[i]); FrameSum = FrameSum + CH_7_RAW[i];
+}
+EUSART_Write('|'); FrameSum = FrameSum + '|';
+
+for(int i=0; i<4; i++)
+{
+EUSART_Write(CH_8_RAW[i]); FrameSum = FrameSum + CH_8_RAW[i];
+}
+EUSART_Write('|'); FrameSum = FrameSum + '|';
+
+Checksum = FrameSum%255;
+EUSART_Write(Checksum);
+EUSART_Write('|');
+
 EUSART_Write(0x0D);
 EUSART_Write(0x0A);
 }
@@ -3209,57 +3280,79 @@ break;
 
 }
 
-uint32_t GetData(uint8_t ChannelNumber){
+void GetData(uint8_t ChannelNumber){
 
-uint8_t Data_A;
-uint8_t Data_B;
-uint8_t Data_C;
-uint8_t Data_D;
+char *ArrayPointer;
 
-uint32_t MAX31855_Data = 0;
+if(ChannelNumber == 1) ArrayPointer = &CH_1_RAW;
+if(ChannelNumber == 2) ArrayPointer = &CH_2_RAW;
+if(ChannelNumber == 3) ArrayPointer = &CH_3_RAW;
+if(ChannelNumber == 4) ArrayPointer = &CH_4_RAW;
+if(ChannelNumber == 5) ArrayPointer = &CH_5_RAW;
+if(ChannelNumber == 6) ArrayPointer = &CH_6_RAW;
+if(ChannelNumber == 7) ArrayPointer = &CH_7_RAW;
+if(ChannelNumber == 8) ArrayPointer = &CH_8_RAW;
 
 SetChannel(ChannelNumber);
-Data_A = SPI_Exchange8bit(0);
-Data_B = SPI_Exchange8bit(0);
-Data_C = SPI_Exchange8bit(0);
-Data_D = SPI_Exchange8bit(0);
+
+*(ArrayPointer+0) = SPI_Exchange8bit(0);
+*(ArrayPointer+1) = SPI_Exchange8bit(0);
+*(ArrayPointer+2) = SPI_Exchange8bit(0);
+*(ArrayPointer+3) = SPI_Exchange8bit(0);
+
 SetChannel(0);
 
-MAX31855_Data = (Data_A *16777216) + (Data_B *65536) + (Data_C * 256) + Data_D;
-
-return MAX31855_Data;
 }
 
-# 199
+# 272
 void main(void)
 {
 
 SYSTEM_Initialize();
 SetChannel(0);
 
-# 220
+do { LATBbits.LATB4 = 1; } while(0);
+
+# 295
 while (1)
 {
 
-_delay((unsigned long)((1000)*(16000000/4000.0)));
-do { LATBbits.LATB5 = 1; } while(0);
-_delay((unsigned long)((1000)*(16000000/4000.0)));
-do { LATBbits.LATB5 = 0; } while(0);
-
-do { LATBbits.LATB4 = 1; } while(0);
-CH1_RAW = GetData(1);
-CH2_RAW = GetData(2);
-CH3_RAW = GetData(3);
-CH4_RAW = GetData(4);
-CH5_RAW = GetData(5);
-CH6_RAW = GetData(6);
-CH7_RAW = GetData(7);
-CH8_RAW = GetData(8);
-do { LATBbits.LATB4 = 0; } while(0);
 
 
-sprintf(Frame,"T = %d",CH1_RAW);
-SendFrame(Frame);
+
+while(!PIR1bits.RCIF)
+{
+}
+
+
+ReceivedByte = EUSART_Read();
+
+if((ReceivedByte == '#') && ReceiveCount == 0) ReceiveCount++;
+else if((ReceivedByte == 'g') && ReceiveCount == 1) ReceiveCount++;
+else if((ReceivedByte == 'e') && ReceiveCount == 2) ReceiveCount++;
+else if((ReceivedByte == 't') && ReceiveCount == 3) ReceiveCount++;
+else if((ReceivedByte == '_') && ReceiveCount == 4) ReceiveCount++;
+else if((ReceivedByte == 'd') && ReceiveCount == 5) ReceiveCount++;
+else if((ReceivedByte == 'a') && ReceiveCount == 6) ReceiveCount++;
+else if((ReceivedByte == 't') && ReceiveCount == 7) ReceiveCount++;
+else if((ReceivedByte == 'a') && ReceiveCount == 8) ReceiveCount++;
+else ReceiveCount = 0;
+
+
+if(ReceiveCount >= 9)
+{
+do { LATBbits.LATB3 = 1; } while(0);
+for(uint8_t ChannelCount = 1; ChannelCount <=8; ChannelCount++)
+{
+GetData(ChannelCount);
+}
+
+SendDataFrame();
+ReceiveCount = 0;
+do { LATBbits.LATB3 = 0; } while(0);
+
+}
+
 
 
 

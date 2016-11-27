@@ -2934,7 +2934,7 @@ RCSTA = 0x90;
 TXSTA = 0x24;
 
 
-SPBRGL = 0xCF;
+SPBRGL = 0x22;
 
 
 SPBRGH = 0x00;
