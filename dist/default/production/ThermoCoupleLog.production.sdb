@@ -11,11 +11,11 @@
 [v ___lwmod __lwmod `(ui  1 e 2 0 ]
 "74 C:\Workspace\MPLAB_X300\ThermoCoupleLog\main.c
 [v _SendDataFrame SendDataFrame `(v  1 e 1 0 ]
-"135
+"125
 [v _SetChannel SetChannel `(v  1 e 1 0 ]
-"243
+"233
 [v _GetData GetData `(v  1 e 1 0 ]
-"272
+"262
 [v _main main `(v  1 e 1 0 ]
 "55 C:\Workspace\MPLAB_X300\ThermoCoupleLog\mcc_generated_files/eusart.c
 [v _EUSART_Initialize EUSART_Initialize `(v  1 e 1 0 ]
@@ -196,37 +196,37 @@
 [v _CH_7_RAW CH_7_RAW `[4]uc  1 e 4 0 ]
 "61
 [v _CH_8_RAW CH_8_RAW `[4]uc  1 e 4 0 ]
-"272
+"262
 [v _main main `(v  1 e 1 0 ]
 {
-"323
+"313
 [v main@ChannelCount ChannelCount `uc  1 a 1 8 ]
-"338
+"329
 } 0
 "74
 [v _SendDataFrame SendDataFrame `(v  1 e 1 0 ]
 {
-"121
+"113
 [v SendDataFrame@i_322 i `i  1 a 2 15 ]
-"115
+"108
 [v SendDataFrame@i_321 i `i  1 a 2 13 ]
-"110
-[v SendDataFrame@i_320 i `i  1 a 2 11 ]
 "104
-[v SendDataFrame@i_319 i `i  1 a 2 9 ]
+[v SendDataFrame@i_320 i `i  1 a 2 11 ]
 "99
+[v SendDataFrame@i_319 i `i  1 a 2 9 ]
+"95
 [v SendDataFrame@i_318 i `i  1 a 2 7 ]
-"93
+"90
 [v SendDataFrame@i_317 i `i  1 a 2 5 ]
-"88
+"86
 [v SendDataFrame@i_316 i `i  1 a 2 3 ]
-"82
+"81
 [v SendDataFrame@i i `i  1 a 2 1 ]
 "76
 [v SendDataFrame@FrameSum FrameSum `ui  1 a 2 17 ]
 "77
 [v SendDataFrame@Checksum Checksum `uc  1 a 1 0 ]
-"133
+"123
 } 0
 "6 C:\Program Files (x86)\Microchip\xc8\v1.38\sources\common\lwmod.c
 [v ___lwmod __lwmod `(ui  1 e 2 0 ]
@@ -276,23 +276,23 @@
 {
 "74
 } 0
-"243 C:\Workspace\MPLAB_X300\ThermoCoupleLog\main.c
+"233 C:\Workspace\MPLAB_X300\ThermoCoupleLog\main.c
 [v _GetData GetData `(v  1 e 1 0 ]
 {
 [v GetData@ChannelNumber ChannelNumber `uc  1 a 1 wreg ]
-"245
+"235
 [v GetData@ArrayPointer ArrayPointer `*.4uc  1 a 1 4 ]
-"243
+"233
 [v GetData@ChannelNumber ChannelNumber `uc  1 a 1 wreg ]
-"247
+"237
 [v GetData@ChannelNumber ChannelNumber `uc  1 a 1 5 ]
-"265
+"255
 } 0
-"135
+"125
 [v _SetChannel SetChannel `(v  1 e 1 0 ]
 {
 [v SetChannel@ChannelNumber ChannelNumber `i  1 p 2 0 ]
-"241
+"231
 } 0
 "77 C:\Workspace\MPLAB_X300\ThermoCoupleLog\mcc_generated_files/spi.c
 [v _SPI_Exchange8bit SPI_Exchange8bit `(uc  1 e 1 0 ]

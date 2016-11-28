@@ -3118,55 +3118,45 @@ uint8_t Checksum = 0;
 
 
 EUSART_Write('#'); FrameSum = FrameSum + '#';
-EUSART_Write('|'); FrameSum = FrameSum + '|';
 for(int i=0; i<4; i++)
 {
 EUSART_Write(CH_1_RAW[i]); FrameSum = FrameSum + CH_1_RAW[i];
 }
-EUSART_Write('|'); FrameSum = FrameSum + '|';
 
 for(int i=0; i<4; i++)
 {
 EUSART_Write(CH_2_RAW[i]); FrameSum = FrameSum + CH_2_RAW[i];
 }
-EUSART_Write('|'); FrameSum = FrameSum + '|';
 for(int i=0; i<4; i++)
 {
 EUSART_Write(CH_3_RAW[i]); FrameSum = FrameSum + CH_3_RAW[i];
 }
-EUSART_Write('|'); FrameSum = FrameSum + '|';
 
 for(int i=0; i<4; i++)
 {
 EUSART_Write(CH_4_RAW[i]); FrameSum = FrameSum + CH_4_RAW[i];
 }
-EUSART_Write('|'); FrameSum = FrameSum + '|';
 for(int i=0; i<4; i++)
 {
 EUSART_Write(CH_5_RAW[i]); FrameSum = FrameSum + CH_5_RAW[i];
 }
-EUSART_Write('|'); FrameSum = FrameSum + '|';
 
 for(int i=0; i<4; i++)
 {
 EUSART_Write(CH_6_RAW[i]); FrameSum = FrameSum + CH_6_RAW[i];
 }
-EUSART_Write('|'); FrameSum = FrameSum + '|';
 for(int i=0; i<4; i++)
 {
 EUSART_Write(CH_7_RAW[i]); FrameSum = FrameSum + CH_7_RAW[i];
 }
-EUSART_Write('|'); FrameSum = FrameSum + '|';
 
 for(int i=0; i<4; i++)
 {
 EUSART_Write(CH_8_RAW[i]); FrameSum = FrameSum + CH_8_RAW[i];
 }
-EUSART_Write('|'); FrameSum = FrameSum + '|';
 
 Checksum = FrameSum%255;
 EUSART_Write(Checksum);
-EUSART_Write('|');
 
 EUSART_Write(0x0D);
 EUSART_Write(0x0A);
@@ -3304,7 +3294,7 @@ SetChannel(0);
 
 }
 
-# 272
+# 262
 void main(void)
 {
 
@@ -3313,7 +3303,7 @@ SetChannel(0);
 
 do { LATBbits.LATB4 = 1; } while(0);
 
-# 295
+# 285
 while (1)
 {
 
@@ -3350,6 +3340,7 @@ GetData(ChannelCount);
 SendDataFrame();
 ReceiveCount = 0;
 do { LATBbits.LATB3 = 0; } while(0);
+
 
 }
 
