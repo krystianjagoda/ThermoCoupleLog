@@ -11,3 +11,4 @@ High Speed 8 Channel Temperature measurement:
 
 **Photo:**
 
+https://github.com/krystianjagoda/ThermoCoupleLog/blob/master/Resources/Foto.png
